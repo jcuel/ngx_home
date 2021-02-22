@@ -1,7 +1,7 @@
 # The line below states we will base our new image on the Latest Official Ubuntu 
 FROM ubuntu:latest
 # Identify the maintainer of an image
-LABEL maintainer="jorge.cuel@softvision.com"
+LABEL maintainer="Instructor/Jorge Cuel"
 # Update the image to the latest packages
 RUN apt-get update && apt-get upgrade -y
 #Let's install NGINX 
