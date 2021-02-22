@@ -1,6 +1,7 @@
-# ngx_home
-This is a dockerfile to create ngx custom server using a template website, hosted on port 80.
-
+#########################################################################################################
+## ngx_home
+## This is a dockerfile to create ngx custom server using a template website, hosted on port 80.
+##########################################################################################################
 
 root@containerhost:/home/instructor# cd projects/
 root@containerhost:/home/instructor/projects# mkdir ngx_home
