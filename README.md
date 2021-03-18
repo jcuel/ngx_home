@@ -9,7 +9,7 @@ root@containerhost:/home/instructor/projects# mkdir ngx_home
 root@containerhost:/home/instructor/projects# cd ngx_home/
 root@containerhost:/home/instructor/projects/ngx_home# nano Dockerfile
 ```
-
+## Ensure you have rights, and build the image
 ```
 root@containerhost:/home/instructor/projects/ngx_home# chown $user:$user /home/instructor/projects/ngx_home/
 root@containerhost:/home/instructor/projects/ngx_home# docker build --tag="projects/ngx_home" /home/instructor/projects/ngx_home/
@@ -333,15 +333,19 @@ Removing intermediate container de8bc5ffb791
 Successfully built 45d004f38d1d
 Successfully tagged projects/ngx_home:latest
 ```
+## Validate the image has been created
 ```
 root@containerhost:/home/instructor/projects/ngx_home# docker image ls
 REPOSITORY              TAG       IMAGE ID       CREATED          SIZE
 projects/ngx_home       latest    45d004f38d1d   4 minutes ago    283MB
-...
+
+```
+## Run the docker container based on the image you just created
+```
 root@containerhost:/home/instructor/projects/ngx_home# docker run -dp 80:80 projects/ngx_home
 ffeacf264b77c2619b262841bc59b81190f16445edfe6b20b7ce5297f0d152a0
 ```
-
+## Validate container is running
 ```
 
 root@containerhost:/home/instructor/projects/ngx_home# docker ps
