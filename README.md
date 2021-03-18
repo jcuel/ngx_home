@@ -1,15 +1,16 @@
 #########################################################################################################
-## ngx_home
+# ngx_home
 ## This is a dockerfile to create ngx custom server using a template website, hosted on port 80.
 ##########################################################################################################
-
+## PASTE Dockerfile IN NANO and SAVE
+```
 root@containerhost:/home/instructor# cd projects/
 root@containerhost:/home/instructor/projects# mkdir ngx_home
 root@containerhost:/home/instructor/projects# cd ngx_home/
 root@containerhost:/home/instructor/projects/ngx_home# nano Dockerfile
+```
 
-################ PASTE Dockerfile IN NANO and SAVE ######################
-
+```
 root@containerhost:/home/instructor/projects/ngx_home# chown $user:$user /home/instructor/projects/ngx_home/
 root@containerhost:/home/instructor/projects/ngx_home# docker build --tag="projects/ngx_home" /home/instructor/projects/ngx_home/
 Sending build context to Docker daemon  3.584kB
@@ -331,23 +332,31 @@ Removing intermediate container de8bc5ffb791
  ---> 45d004f38d1d
 Successfully built 45d004f38d1d
 Successfully tagged projects/ngx_home:latest
-
+```
+```
 root@containerhost:/home/instructor/projects/ngx_home# docker image ls
 REPOSITORY              TAG       IMAGE ID       CREATED          SIZE
 projects/ngx_home       latest    45d004f38d1d   4 minutes ago    283MB
 ...
 root@containerhost:/home/instructor/projects/ngx_home# docker run -dp 80:80 projects/ngx_home
 ffeacf264b77c2619b262841bc59b81190f16445edfe6b20b7ce5297f0d152a0
+```
+
+```
 
 root@containerhost:/home/instructor/projects/ngx_home# docker ps
 CONTAINER ID   IMAGE               COMMAND                  CREATED          STATUS          PORTS                NAMES
 6e46d4577300   projects/ngx_home   "nginx -g 'daemon of…"   28 minutes ago   Up 28 minutes   0.0.0.0:80->80/tcp   wizardly_brown
 
-# IMPORTANT - ALLOW PORT 80 TRAFFIC SO YOU CAN TEST (in case it's a remote server)
+```
+## IMPORTANT - ALLOW PORT 80 TRAFFIC SO YOU CAN TEST (in case it's a remote server)
+```
 ufw allow 80/tcp
-
-# Environment cleanup
+```
+## Environment cleanup
+```
 List all containers (even the ones that are not running) docker ps --all
 Kill all running containers docker kill $(docker ps -q)
 Delete all stopped containers docker rm $(docker ps -a -q)
 Delete all images docker rmi $(docker images -q)
+```
